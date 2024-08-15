@@ -1,0 +1,10 @@
+.video-player h1 {
+  color: white;
+  font-size: x-large;
+}
+
+.video-container video {
+  width: 650px;
+  height: 350px;
+  border-radius: 5px;
+}

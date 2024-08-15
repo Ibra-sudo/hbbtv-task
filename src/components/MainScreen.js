@@ -1,48 +1,61 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import videos from "../videos.json";
 import "./MainScreen.css";
 
-const MainScreen = () => {
-  const [selectedVideo, setSelectedVideo] = useState(null);
-  const [watchedVideos, setWatchedVideos] = useState([]);
+const MainScreen = ({ onSelectVideo, watchedVideos }) => {
+  const [selectedIndex, setSelectedIndex] = useState(0);
 
-  const handelThumbnailClick = (video, index) => {
-    setSelectedVideo(video);
-    setWatchedVideos((prevWatched) => [...new Set([...prevWatched, index])]);
+  const handleKeyDown = (e) => {
+    switch (e.key) {
+      case "ArrowLeft":
+        setSelectedIndex((prev) => (prev - 1 + videos.length) % videos.length);
+        break;
+      case "ArrowRight":
+        setSelectedIndex((prev) => (prev + 1) % videos.length);
+        break;
+      case "Enter":
+      case " ":
+        const selectedVid = videos[selectedIndex];
+        onSelectVideo(selectedVid);
+        break;
+      default:
+        break;
+    }
   };
 
+  const handelThumbnailClick = (video) => {
+    onSelectVideo(video);
+  };
+
+  useEffect(() => {
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  });
+
   return (
-    <>
-      <div className="main-screen">
-        <h1>Single line title</h1>
-        <div className="videos">
-          {videos.map((video, index) => (
-            <div
-              key={video.title}
-              className={`thumbnail ${
-                watchedVideos.includes(index) ? "watched" : ""
-              }`}
-              onClick={() => handelThumbnailClick(video, index)}
-            >
-              <img src={video.thumbnail} alt={video.title} />
-              <div className="season">{video.season}</div>
-              <div className="title">{video.title}</div>
-              {watchedVideos.includes(index) && (
-                <div className="watched-label">Watched</div>
-              )}
-            </div>
-          ))}
-        </div>
-      </div>
-      {selectedVideo && (
-        <div className="main-screen selected-video">
-          <h1>{selectedVideo.title}</h1>
-          <div className="video-larg">
-            <video src={selectedVideo.videoUrl} controls autoPlay />
+    <div className="main-screen">
+      <h1>Single line title</h1>
+      <div className="videos">
+        {videos.map((video, index) => (
+          <div
+            key={video.id}
+            className={`thumbnail ${
+              index === selectedIndex ? "selected" : ""
+            } ${watchedVideos.includes(video.id) ? "watched" : ""}`}
+            onClick={() => handelThumbnailClick(video)}
+          >
+            <img src={video.thumbnail} alt={video.title} />
+            <div className="season">{video.season}</div>
+            <div className="title">{video.title}</div>
+            {watchedVideos.includes(video.id) && (
+              <div className="watched-label">Watched</div>
+            )}
           </div>
-        </div>
-      )}
-    </>
+        ))}
+      </div>
+    </div>
   );
 };
 

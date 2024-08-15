@@ -8,3 +8,18 @@
   background-position: center;
   background-repeat: no-repeat;
 }
+
+.main-container {
+  display: flex;
+  width: 100%;
+}
+
+.video-container {
+  padding: 40px;
+  width: 43%;
+  height: 400px;
+  background-color: rgb(47, 47, 47);
+  border-radius: 5px;
+  margin: 20px;
+  margin-top: 10%;
+}

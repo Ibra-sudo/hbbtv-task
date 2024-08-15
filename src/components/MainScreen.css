@@ -1,7 +1,7 @@
 .main-screen {
   padding: 40px;
   width: 43%;
-  height: 350px;
+  height: 400px;
   background-color: rgb(47, 47, 47);
   border-radius: 5px;
   margin: 20px;
@@ -37,7 +37,6 @@
 
 .video-larg video {
   width: 650px;
-  height: 300px;
   border-radius: 5px;
 }
 
