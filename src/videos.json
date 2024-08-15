@@ -1,0 +1,20 @@
+[
+  {
+    "season": "S1 E1",
+    "title": "Sintel Trailer",
+    "thumbnail": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/4BMG9hk9NvSBeQvC82sVmVRK140.jpg",
+    "videoUrl": "https://download.blender.org/durian/trailer/sintel_trailer-1080p.mp4"
+  },
+  {
+    "season": "S1 E2",
+    "title": "Big Buck Bunny",
+    "thumbnail": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/i9jJzvoXET4D9pOkoEwncSdNNER.jpg",
+    "videoUrl": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_640x360.m4v"
+  },
+  {
+    "season": "S1 E3",
+    "title": "Elephants Dream",
+    "thumbnail": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/9zROtU9TkpZQrOuEaMAp68FOWLK.jpg",
+    "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"
+  }
+]

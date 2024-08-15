@@ -1,0 +1,94 @@
+.main-screen {
+  padding: 40px;
+  width: 43%;
+  height: 350px;
+  background-color: rgb(47, 47, 47);
+  border-radius: 5px;
+  margin: 20px;
+  margin-top: 10%;
+}
+
+.main-screen h1 {
+  color: white;
+  font-size: x-large;
+}
+
+.videos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.thumbnail {
+  position: relative;
+  margin: 10px;
+  border: 1.8px solid;
+  cursor: pointer;
+  width: 160px;
+  border-radius: 10px;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.thumbnail:hover {
+  border-color: rgb(255, 255, 255);
+  transform: scale(1.04);
+}
+
+.video-larg video {
+  width: 650px;
+  height: 300px;
+  border-radius: 5px;
+}
+
+.thumbnail.selected {
+  border-color: rgb(255, 255, 255);
+}
+
+.thumbnail.watched {
+  opacity: 0.5;
+}
+
+.thumbnail img {
+  width: 100%;
+  /* height: 100%; */
+  object-fit: contain;
+  display: block;
+  border-radius: 9px;
+}
+
+.thumbnail .season,
+.thumbnail .title {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 5px;
+}
+
+.thumbnail .season {
+  bottom: 25px;
+  font-size: 11px;
+  color: white;
+}
+
+.thumbnail .title {
+  bottom: 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.6));
+  border-bottom-left-radius: 9px;
+  border-bottom-right-radius: 9px;
+}
+
+.watched-label {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  background-color: rgb(0, 0, 0);
+  color: white;
+  padding: 2px 5px;
+  font-size: 10px;
+  border-radius: 3px;
+}
